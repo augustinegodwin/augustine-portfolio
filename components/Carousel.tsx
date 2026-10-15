@@ -111,7 +111,7 @@ export default function Carousel({ projects, active, onSelect }: Props) {
             >
               <span className="flex items-end h-[100px] mobile:h-[81px]">
                 <span
-                  className="relative block w-full h-[73px] overflow-hidden rounded-[3px] [box-shadow:0_10px_30px_rgba(0,0,0,0.45),inset_0_0_0_1px_rgba(255,255,255,0.07)] mobile:h-[59px]"
+                  className="relative block w-full h-[73px] overflow-hidden rounded-[10px] [box-shadow:0_10px_30px_rgba(0,0,0,0.45),inset_0_0_0_1px_rgba(255,255,255,0.07)] mobile:h-[59px]"
                   data-thumb
                   style={{
                     background: p.image
