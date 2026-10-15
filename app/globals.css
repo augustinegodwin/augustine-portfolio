@@ -9,7 +9,7 @@
 }
 @font-face{
   font-family:SF_Rounded_Medium;
-  src:url(../app/assets/font/Inter_18pt-Medium.ttf)
+  src:url(../app/assets/font/Geist-VariableFont_wght.ttf  )
 }
 /* ── Design tokens (unchanged from the original) ───────────── */
 :root {
@@ -66,5 +66,6 @@
 }
 .font-medium {
   font-family: SF_Rounded_Medium, var(--font-sans);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.04em ;
+  font-weight: 500;
 }

@@ -127,8 +127,7 @@ export default function Hero() {
           className="mt-[18px] font-medium text-[15px] leading-[1.6] text-muted opacity-0 motion-reduce:opacity-100 mobile:text-[14px]"
           data-reveal
         >
-          {site.description}
-          <br />
+          {site.description}&nbsp;
           <span className="text-fg">{site.yearsOfExperience}+ years of experience.</span>
         </p>
 
