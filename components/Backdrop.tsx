@@ -3,7 +3,7 @@
 const mediaCls =
   "absolute inset-0 w-full h-full object-cover [filter:blur(26px)_saturate(1.1)] [transform:scale(1.12)]";
 
-export default function Backdrop({ media }: { media: string | null }) {
+export default function Backdrop({ media, portrait }: { media: string | null; portrait?: string }) {
   const isVideo = !!media && /\.(mp4|webm|mov)$/i.test(media);
   return (
     <div className="absolute inset-0 z-[-1] overflow-hidden" aria-hidden="true">
@@ -48,6 +48,15 @@ export default function Backdrop({ media }: { media: string | null }) {
               className="absolute right-[4%] bottom-[6%] w-[42vw] h-[34%] rounded-full bg-[color:var(--tint-b)] opacity-[0.34] blur-[110px] will-change-transform"
               data-blob
             />
+            {/* out-of-focus portrait, like a camera shot of the person */}
+            {portrait && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                className="absolute -top-[8%] left-[57%] h-full max-w-none aspect-square -translate-x-1/2 blur-[10px] opacity-90 [mask-image:radial-gradient(ellipse_60%_68%_at_50%_46%,#000_50%,transparent_100%)] mobile:left-[72%] mobile:opacity-50"
+                src={portrait}
+                alt=""
+              />
+            )}
           </>
         )}
       </div>

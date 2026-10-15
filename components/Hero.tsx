@@ -96,8 +96,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative h-svh min-h-[720px] overflow-hidden isolate" ref={root}>
-      <Backdrop media={site.heroMedia} />
+    <div className="relative h-svh min-h-[640px] overflow-hidden isolate" ref={root}>
+      <Backdrop media={site.heroMedia} portrait="/portrait.png" />
 
       {/* brand */}
       <header
@@ -108,7 +108,7 @@ export default function Hero() {
           <Monogram />
         </span>
         <span className="w-px h-[22px] bg-line" />
-        <span className="text-[10.5px] leading-[1.25] tracking-[0.04em] text-muted font-medium">
+        <span className="font-medium text-[10.5px] font-medium leading-[1.25] tracking-[0.04em] text-muted">
           {site.role[0]}
           <br />
           {site.role[1]}
@@ -118,7 +118,7 @@ export default function Hero() {
       {/* intro */}
       <div className="absolute left-[var(--content-left)] top-[24svh] max-w-[min(420px,calc(100vw_-_var(--content-left)_-_24px))] mobile:top-[18svh]">
         <h1
-          className="text-[clamp(32px,3.1vw,46px)] leading-[1.05] font-medium tracking-[-0.025em] opacity-0 motion-reduce:opacity-100"
+          className="text-[clamp(32px,3.1vw,46px)] leading-[1.05] font-bold tracking-[-0.025em] opacity-0 motion-reduce:opacity-100"
           data-reveal
         >
           {site.name}
@@ -127,27 +127,30 @@ export default function Hero() {
           className="mt-[18px] font-medium text-[15px] leading-[1.6] text-muted opacity-0 motion-reduce:opacity-100 mobile:text-[14px]"
           data-reveal
         >
-          {site.description} with { }
+          {site.description}
+          <br />
           <span className="text-fg">{site.yearsOfExperience}+ years of experience.</span>
         </p>
 
         <a
-          className="inline-flex items-center font-medium gap-2 mt-7 h-10 pl-[15px] pr-2 rounded-full bg-[rgba(244,246,245,0.94)] text-[#0b0e0d] text-[14px] font-medium tracking-[-0.005em] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] opacity-0 motion-reduce:opacity-100"
+          className="inline-flex font-medium items-center gap-2 mt-7 h-10 pl-[15px] pr-2 rounded-full bg-[rgba(244,246,245,0.94)] text-[#0b0e0d] text-[14px] font-medium tracking-[-0.005em] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] opacity-0 motion-reduce:opacity-100"
           href={site.links.upwork}
           target="_blank"
           rel="noopener noreferrer"
           data-reveal
         >
-          
+          <ArrowUpRight size={15} />
           <span>Hire me on Upwork</span>
-         <ArrowUpRight size={15} />
+          <kbd className="grid place-items-center w-[22px] h-[22px] ml-1.5 rounded-[7px] bg-black/[0.08] font-code text-[11px] font-medium text-black/60">
+            H
+          </kbd>
         </a>
 
         <div
           className="flex items-center flex-wrap gap-2 mt-[22px] text-[12px] text-muted opacity-0 motion-reduce:opacity-100"
           data-reveal
         >
-          <span className="mr-1 font-medium ">Follow</span>
+          <span className="mr-1">Follow</span>
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}
@@ -163,7 +166,15 @@ export default function Hero() {
           ))}
         </div>
 
-        
+        {/* <div className="mt-5 opacity-0 motion-reduce:opacity-100" data-reveal>
+          <span className="inline-flex font-medium items-center gap-2 h-7 pl-2.5 pr-3 rounded-full bg-[rgba(74,222,128,0.1)] text-[12px] font-medium tracking-[-0.005em] text-[#86efac]">
+            <span className="relative grid place-items-center w-2 h-2">
+              <i className="absolute inset-0 rounded-full bg-[#4ade80] opacity-60 animate-[status-ping_2.4s_ease-out_infinite]" />
+              <i className="relative w-[6px] h-[6px] rounded-full bg-[#4ade80]" />
+            </span>
+            {site.availability}
+          </span>
+        </div> */}
       </div>
 
       <Carousel projects={projects} active={active} onSelect={select} />
