@@ -108,7 +108,7 @@ export default function Hero() {
           <Monogram />
         </span>
         <span className="w-px h-[22px] bg-line" />
-        <span className="text-[10.5px] leading-[1.25] tracking-[0.04em] text-muted">
+        <span className="text-[10.5px] leading-[1.25] tracking-[0.04em] text-muted font-medium">
           {site.role[0]}
           <br />
           {site.role[1]}
@@ -124,16 +124,15 @@ export default function Hero() {
           {site.name}
         </h1>
         <p
-          className="mt-[18px] text-[15px] leading-[1.6] text-muted opacity-0 motion-reduce:opacity-100 mobile:text-[14px]"
+          className="mt-[18px] font-medium text-[15px] leading-[1.6] text-muted opacity-0 motion-reduce:opacity-100 mobile:text-[14px]"
           data-reveal
         >
-          {site.description}
-          <br />
+          {site.description} with { }
           <span className="text-fg">{site.yearsOfExperience}+ years of experience.</span>
         </p>
 
         <a
-          className="inline-flex items-center gap-2 mt-7 h-10 pl-[15px] pr-2 rounded-full bg-[rgba(244,246,245,0.94)] text-[#0b0e0d] text-[14px] font-medium tracking-[-0.005em] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] opacity-0 motion-reduce:opacity-100"
+          className="inline-flex items-center font-medium gap-2 mt-7 h-10 pl-[15px] pr-2 rounded-full bg-[rgba(244,246,245,0.94)] text-[#0b0e0d] text-[14px] font-medium tracking-[-0.005em] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] opacity-0 motion-reduce:opacity-100"
           href={site.links.upwork}
           target="_blank"
           rel="noopener noreferrer"
@@ -148,7 +147,7 @@ export default function Hero() {
           className="flex items-center flex-wrap gap-2 mt-[22px] text-[12px] text-muted opacity-0 motion-reduce:opacity-100"
           data-reveal
         >
-          <span className="mr-1">Follow</span>
+          <span className="mr-1 font-medium ">Follow</span>
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}

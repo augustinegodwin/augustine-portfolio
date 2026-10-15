@@ -129,7 +129,7 @@ export default function Carousel({ projects, active, onSelect }: Props) {
                 </span>
               </span>
               <span className="flex flex-col gap-[3px] mt-[14px] opacity-[0.62]" data-label>
-                <span className="font-code text-[10px] tracking-[0.1em] uppercase text-muted">
+                <span className="font-medium text-[10px] tracking-[0.1em] uppercase text-muted">
                   Project {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-[13px] font-medium tracking-[-0.005em] whitespace-nowrap">
