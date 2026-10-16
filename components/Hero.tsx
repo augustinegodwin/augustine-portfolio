@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { projects, site } from "@/data/site";
 import Backdrop from "./Backdrop";
 import Carousel from "./Carousel";
+import Monitor from "./Monitor";
 import { ArrowUpRight, GithubIcon, LinkedinIcon, Monogram, UpworkIcon, XIcon } from "./Icons";
 
 const socials = [
@@ -101,30 +102,33 @@ export default function Hero() {
 
       {/* brand */}
       <header
-        className="absolute top-10 left-[var(--content-left)] flex items-center gap-3 opacity-0 motion-reduce:opacity-100 mobile:top-6"
+        className="absolute z-[2] top-10 left-[var(--content-left)] flex items-center gap-3 opacity-0 motion-reduce:opacity-100 mobile:top-6"
         data-reveal
       >
         <span className="grid place-items-center">
           <Monogram />
         </span>
         <span className="w-px h-[22px] bg-line" />
-        <span className="font-medium text-[10.5px] font-medium leading-[1.25] tracking-[0.04em] text-muted">
+        <span className="font-medium text-[10.5px] leading-[1.25] tracking-[0.04em] text-muted">
           {site.role[0]}
           <br />
           {site.role[1]}
         </span>
       </header>
 
+      {/* 3D monitor (sits behind the carousel) */}
+      <Monitor projects={projects} active={active} />
+
       {/* intro */}
-      <div className="absolute left-[var(--content-left)] top-[24svh] max-w-[min(420px,calc(100vw_-_var(--content-left)_-_24px))] mobile:top-[18svh]">
+      <div className="absolute z-[2] left-[var(--content-left)] top-[22svh] max-w-[min(520px,calc(100vw_-_var(--content-left)_-_24px))] mobile:top-[16svh]">
         <h1
-          className="text-[clamp(32px,3.1vw,46px)] leading-[1.05] font-bold tracking-[-0.025em] opacity-0 motion-reduce:opacity-100"
+          className="text-[clamp(32px,4.2vw,64px)] leading-[1.05] font-bold tracking-[-0.03em] lg:whitespace-nowrap opacity-0 motion-reduce:opacity-100"
           data-reveal
         >
           {site.name}
         </h1>
         <p
-          className="mt-[18px] font-medium text-[15px] leading-[1.6] text-muted opacity-0 motion-reduce:opacity-100 mobile:text-[14px]"
+          className="mt-5 font-medium text-[clamp(15px,1.15vw,18px)] leading-[1.6] text-muted opacity-0 motion-reduce:opacity-100"
           data-reveal
         >
           {site.description}&nbsp;
@@ -132,7 +136,7 @@ export default function Hero() {
         </p>
 
         <a
-          className="inline-flex font-medium items-center gap-2 mt-7 h-10 pl-[15px] pr-2 rounded-full bg-[rgba(244,246,245,0.94)] text-[#0b0e0d] text-[14px] font-medium tracking-[-0.005em] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] opacity-0 motion-reduce:opacity-100"
+          className="inline-flex font-medium items-center gap-2 mt-8 h-11 pl-[16px] pr-2 rounded-full bg-[rgba(244,246,245,0.94)] text-[#0b0e0d] text-[14.5px] tracking-[-0.005em] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] opacity-0 motion-reduce:opacity-100"
           href={site.links.upwork}
           target="_blank"
           rel="noopener noreferrer"
@@ -146,34 +150,24 @@ export default function Hero() {
         </a>
 
         <div
-          className="flex items-center flex-wrap gap-2 mt-[22px] text-[12px] text-muted opacity-0 motion-reduce:opacity-100"
+          className="flex items-center flex-wrap gap-2 mt-6 text-[12px] text-muted opacity-0 motion-reduce:opacity-100"
           data-reveal
         >
           <span className="mr-1">Follow</span>
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}
-              className="grid place-items-center w-7 h-7 rounded-full bg-chip text-fg transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-[rgba(255,255,255,0.22)] hover:[transform:translateY(-2px)]"
+              className="grid place-items-center w-8 h-8 rounded-full bg-chip text-fg transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-[rgba(255,255,255,0.22)] hover:[transform:translateY(-2px)]"
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
               title={label}
             >
-              <Icon size={13} />
+              <Icon size={14} />
             </a>
           ))}
         </div>
-
-        {/* <div className="mt-5 opacity-0 motion-reduce:opacity-100" data-reveal>
-          <span className="inline-flex font-medium items-center gap-2 h-7 pl-2.5 pr-3 rounded-full bg-[rgba(74,222,128,0.1)] text-[12px] font-medium tracking-[-0.005em] text-[#86efac]">
-            <span className="relative grid place-items-center w-2 h-2">
-              <i className="absolute inset-0 rounded-full bg-[#4ade80] opacity-60 animate-[status-ping_2.4s_ease-out_infinite]" />
-              <i className="relative w-[6px] h-[6px] rounded-full bg-[#4ade80]" />
-            </span>
-            {site.availability}
-          </span>
-        </div> */}
       </div>
 
       <Carousel projects={projects} active={active} onSelect={select} />

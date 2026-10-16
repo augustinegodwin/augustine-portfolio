@@ -65,7 +65,7 @@ export default function Carousel({ projects, active, onSelect }: Props) {
 
   return (
     <section
-      className="absolute inset-x-0 bottom-0 h-[244px] overflow-hidden mobile:h-[210px]"
+      className="absolute inset-x-0 bottom-0 z-[2] h-[244px] overflow-hidden mobile:h-[210px]"
       aria-label="Selected work"
     >
       <div
