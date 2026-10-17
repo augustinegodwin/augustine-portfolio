@@ -25,6 +25,7 @@ export const site = {
 };
 
 export type Project = {
+  name: string;
   title: string;
   stack: string;
   url?: string;
@@ -34,12 +35,12 @@ export type Project = {
 
 // TODO: replace these placeholders with your real work.
 export const projects: Project[] = [
-  { title: "Portfolio v1", stack: "Next.js", colors: ["#1d3b2c", "#0b1712"] },
-  { title: "Commerce Dashboard", stack: "Next.js", colors: ["#1f3a5f", "#0a1424"] },
-  { title: "Mobile Banking", stack: "React Native", colors: ["#3b2a52", "#140d1f"] },
-  { title: "Blog Engine", stack: "MDX", colors: ["#4a3a22", "#18120a"] },
-  { title: "Realtime Chat", stack: "Firebase", colors: ["#0f4a4a", "#061a1a"] },
-  { title: "Auth Gateway", stack: "Node.js", colors: ["#4a2230", "#190b11"] },
-  { title: "Analytics Suite", stack: "Next.js", colors: ["#2b3a4a", "#0d1319"] },
-  { title: "Release Toolkit", stack: "GitHub Actions", colors: ["#2f4a2a", "#0f1a0d"] },
+  { name: "Portfolio", title: "Portfolio v1", stack: "Next.js", colors: ["#1d3b2c", "#0b1712"] },
+  { name: "Skiilink", title: "Commerce Dashboard", stack: "Next.js", colors: ["#1f3a5f", "#0a1424"] },
+  { name: "Beegee", title: "Mobile Banking", stack: "React Native", colors: ["#3b2a52", "#140d1f"] },
+  { name: "Lucklife", title: "Blog Engine", stack: "MDX", colors: ["#4a3a22", "#18120a"] },
+  { name: "Dlan Academy", title: "Realtime Chat", stack: "Firebase", colors: ["#0f4a4a", "#061a1a"] },
+  { name: "Tweatflash", title: "Auth Gateway", stack: "Node.js", colors: ["#4a2230", "#190b11"] },
+  { name: "Portfolio v1", title: "Analytics Suite", stack: "Next.js", colors: ["#2b3a4a", "#0d1319"] },
+  { name: "Portfolio v1", title: "Upcomming Project", stack: "GitHub Actions", colors: ["#2f4a2a", "#0f1a0d"] },
 ];

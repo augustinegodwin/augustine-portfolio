@@ -134,7 +134,7 @@ export default function NumbersGrid() {
         <h2 className="text-[clamp(30px,4vw,56px)] leading-[1.05] font-bold tracking-[-0.03em]">
           By the numbers
         </h2>
-        <p className="mt-3 font-medium max-w-[460px] text-[15px] leading-[1.6] text-[#6b6b6b]">
+        <p className="mt-3 font-medium max-w-[460px] text-[16px] leading-[1.6] text-[#6b6b6b]">
           A few figures, and a look at the work behind them.
         </p>
 
@@ -160,7 +160,7 @@ export default function NumbersGrid() {
                 <div>
                   <h3 className="text-[15px] md:text-[18px] font-bold leading-tight tracking-[-0.02em]">{t.title}</h3>
                   <p
-                    className={`mt-1.5 text-[13px] md:text-[14px] font-medium leading-[1.5] text-[#6b6b6b] ${
+                    className={`mt-1.5 text-[13px] md:text-[16px] font-medium leading-[1.5] text-[#6b6b6b] ${
                       t.mobileText ? "" : "max-md:hidden"
                     }`}
                   >

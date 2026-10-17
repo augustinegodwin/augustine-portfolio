@@ -16,7 +16,7 @@ const tools: Tool[] = [
   { name: "Next.js", icon: "/tools/nextjs.png" },
   { name: "Supabase", icon: "/tools/supabase.png" },
   { name: "Tailwind CSS", icon: "/tools/tailwind-css.svg" },
-  { name: "Clerk", icon: "/tools/clerk.svg" },
+  { name: "Clerk", icon: "/tools/clerk-light.svg" },
   { name: "Appwrite", icon: "/tools/appwrite.svg" },
   { name: "React", icon: "/tools/react.svg" },
   { name: "React Native", icon: "/tools/react.svg" },
@@ -48,12 +48,28 @@ const tools: Tool[] = [
   //   { name: "OOP" },
 ];
 
+// White sticker outline built from hard (0 blur) drop-shadows in 8 directions.
+// Renders at the device's native resolution, so it stays sharp on phones.
+// Thinner: use 2 and 1. Chunkier: use 4 and 3.
+const OUTLINE = [
+  [3, 0],
+  [-3, 0],
+  [0, 3],
+  [0, -3],
+  [2, 2],
+  [-2, 2],
+  [2, -2],
+  [-2, -2],
+]
+  .map(([x, y]) => `drop-shadow(${x}px ${y}px 0 #fff)`)
+  .join(" ");
+
 // Deterministic "random" (integer math only) so server and client render identically.
 const hash = (i: number, k: number) => {
   let x = Math.imul(i + 1, 374761393) ^ Math.imul(k + 11, 668265263);
   x = Math.imul(x ^ (x >>> 13), 1274126177);
   x ^= x >>> 16;
-  return (x >>> 0) % 1000 / 1000;
+  return ((x >>> 0) % 1000) / 1000;
 };
 
 // Scatter: staggered rows with jitter. Returns left/top in % of the stage.
@@ -134,28 +150,9 @@ export default function Footer() {
 
   return (
     <footer ref={root} className="relative isolate overflow-hidden pt-24 mobile:pt-16">
-      {/* sticker outline filter: dilate the alpha, round it, fill white */}
-      <svg width="0" height="0" className="absolute" aria-hidden>
-        <defs>
-          <filter id="sticker" x="-25%" y="-25%" width="150%" height="150%">
-            <feMorphology in="SourceAlpha" operator="dilate" radius="5" result="grow" />
-            <feGaussianBlur in="grow" stdDeviation="1.4" result="soft" />
-            <feComponentTransfer in="soft" result="round">
-              <feFuncA type="linear" slope="10" intercept="-3" />
-            </feComponentTransfer>
-            <feFlood floodColor="#fff" result="white" />
-            <feComposite in="white" in2="round" operator="in" result="outline" />
-            <feMerge>
-              <feMergeNode in="outline" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-      </svg>
-
       {/* heading + actions */}
       <div className="relative z-[2] mx-auto flex max-w-[900px] flex-col items-center px-6 text-center">
-        <h2 className="text-[clamp(30px,4vw,58px)] font-bold leading-[1.08]">
+        <h2 className="text-[clamp(30px,4vw,58px)] font-bold leading-[1.08] tracking-[-0.03em]">
           Everything I use to design, build
           <br />
           and ship great products
@@ -164,7 +161,7 @@ export default function Footer() {
         <div className="mt-8 flex items-center gap-3">
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex h-12 font-medium items-center gap-2 rounded-full bg-[rgba(244,246,245,0.94)] pl-6 pr-5 text-[16px] tracking-[-0.005em] text-[#0b0e0d] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)]"
+            className="inline-flex font-medium h-12 items-center gap-2 rounded-full bg-[rgba(244,246,245,0.94)] pl-6 pr-5 text-[15px] font-medium tracking-[-0.005em] text-[#0b0e0d] transition-[background,transform] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)]"
           >
             Contact me
             <ArrowUpRight size={15} />
@@ -210,8 +207,9 @@ export default function Footer() {
                   alt={t.name}
                   title={t.name}
                   draggable={false}
+                  decoding="async"
                   className="object-contain mobile:!h-[56px] mobile:!w-[56px]"
-                  style={{ width: t.size, height: t.size, filter: "url(#sticker)" }}
+                  style={{ width: t.size, height: t.size, filter: OUTLINE }}
                 />
               ) : (
                 <span className="inline-block rounded-full bg-white px-5 py-3 text-[15px] font-semibold tracking-tight text-black">
@@ -224,7 +222,7 @@ export default function Footer() {
 
         {/* fade out at the bottom, like the video */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-[45%] bg-gradient-to-t from-black via-black/70 to-transparent" />
-        <p className="absolute font-medium inset-x-0 bottom-6 z-[4] text-center text-sm text-muted">
+        <p className="absolute font-medium inset-x-0 bottom-6 z-[4] text-center text-[12px] text-muted">
           © {new Date().getFullYear()} {site.name}
         </p>
       </ul>
