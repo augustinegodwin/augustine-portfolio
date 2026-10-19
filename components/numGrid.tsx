@@ -140,7 +140,7 @@ export default function NumbersGrid() {
 
         <div
           data-grid
-          className="mt-7 md:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4 lg:gap-5 auto-rows-[160px] md:auto-rows-[minmax(220px,auto)] lg:auto-rows-[minmax(250px,auto)] [grid-auto-flow:dense]"
+          className="mt-7 md:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4 lg:gap-3 auto-rows-[160px] md:auto-rows-[minmax(220px,auto)] lg:auto-rows-[minmax(250px,auto)] [grid-auto-flow:dense]"
         >
           {tiles.map((t, i) =>
             t.kind === "stat" ? (

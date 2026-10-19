@@ -185,7 +185,7 @@ export default function Hero() {
         </p>
 
         <a
-          className="inline-flex items-center gap-2.5 mt-4 h-11 pl-4 pr-4 rounded-[14px] border border-white bg-[#f4f6f5] text-[#0b0e0d] text-[14.5px] font-medium tracking-[-0.01em] shadow-[inset_0_2px_1px_0_rgba(255,255,255,1),inset_0_-3px_2px_0_rgba(0,0,0,0.12),0_14px_20px_-8px_rgba(0,0,0,0.55)] transition-[background,transform,box-shadow] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] active:[transform:translateY(0)] active:shadow-[inset_0_2px_3px_0_rgba(0,0,0,0.15),0_6px_10px_-6px_rgba(0,0,0,0.5)] opacity-0 motion-reduce:opacity-100"
+          className="inline-flex items-center gap-2.5 mt-4 h-10 pl-4 pr-4 rounded-[14px] border border-white bg-[#f4f6f5] text-[#0b0e0d] text-[14.5px] font-medium tracking-[-0.01em] shadow-[inset_0_2px_1px_0_rgba(255,255,255,1),inset_0_-3px_2px_0_rgba(0,0,0,0.12),0_14px_20px_-8px_rgba(0,0,0,0.55)] transition-[background,transform,box-shadow] duration-[250ms] ease-[ease] hover:bg-white hover:[transform:translateY(-1px)] active:[transform:translateY(0)] active:shadow-[inset_0_2px_3px_0_rgba(0,0,0,0.15),0_6px_10px_-6px_rgba(0,0,0,0.5)] opacity-0 motion-reduce:opacity-100"
           href={`mailto:${EMAIL}`}
           data-reveal
         >
